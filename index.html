@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sushant Behera | FlutterFlow Developer</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: auto; }
+    .section { margin-bottom: 40px; }
+    h1, h2, h3 { color: #2c3e50; }
+    .app-card { border: 1px solid #ddd; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
+    pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>👋 Hi, I'm Sushant Behera</h1>
+  <p>A dedicated FlutterFlow Developer focused on offline-first mobile applications.</p>
+
+  <div class="section">
+    <h2>📱 My Projects</h2>
+
+    <div class="app-card">
+      <h3>Propcheckup Checklist</h3>
+      <p>A home inspection app used by inspectors to record issues in residential flats.</p>
+      <ul>
+        <li>Offline-first using SQLite</li>
+        <li>Syncs to Supabase when online</li>
+        <li>Manual and auto-sync</li>
+        <li>Supports image annotations and Firebase uploads</li>
+      </ul>
+      <div class="mermaid">
+        graph TD
+          A[User opens App] --> B{Internet Available?}
+          B -- Yes --> C[Fetch Projects from Supabase]
+          B -- No --> D[Load from SQLite]
+          C --> E[Cache in App State]
+          D --> E
+          E --> F[Select Stage & Project]
+          F --> G[Navigate through Flat > Room > Checklist]
+          G --> H[Store Issues in SQLite]
+          H --> I{Internet Available?}
+          I -- Yes --> J[Sync to Supabase]
+          I -- No --> K[Manual Sync Button]
+      </div>
+    </div>
+
+    <div class="app-card">
+      <h3>Propcheckup Reinspection</h3>
+      <p>Enables inspectors to verify issue resolution and sync results.</p>
+      <ul>
+        <li>Downloads previous issues from Supabase</li>
+        <li>Reinspect and store updates offline</li>
+        <li>Syncs back when online</li>
+      </ul>
+      <div class="mermaid">
+        graph TD
+          A[Inspector opens Reinspection App] --> B[Sync Remarks & Rooms from Supabase]
+          B --> C[Select Stage & Project Tower]
+          C --> D[Sync Issues from Supabase to SQLite]
+          D --> E[View Issues & Reinspect]
+          E --> F[Store Updates in SQLite]
+          F --> G{Internet Available?}
+          G -- Yes --> H[Auto Sync to Supabase]
+          G -- No --> I[Manual Sync Button]
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🧠 Skills</h2>
+    <ul>
+      <li>FlutterFlow Development</li>
+      <li>Offline-first architecture</li>
+      <li>Supabase Integration</li>
+      <li>Firebase Storage</li>
+      <li>Custom Actions & Widgets</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📨 Contact</h2>
+    <p>Email: <a href="mailto:sushant18b@gmail.com">sushant18b@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/sushant-b-377783167" target="_blank">Sushant Behera</a></p>
+  </div>
+</body>
+</html>
